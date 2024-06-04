@@ -1,12 +1,12 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Home from './UI/Home';
-import Error from './UI/Error';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Home from './UI/Home'
+import Error from './UI/Error'
 
-import Menu, { loader as menuLoader } from './features/menu/Menu';
-import Cart from './features/cart/Cart';
-import Order from './features/order/Order';
-import CreateOrder from './features/order/CreateOrder';
-import AppLayout from './UI/AppLayout';
+import Menu, { loader as menuLoader } from './features/menu/Menu'
+import Cart from './features/cart/Cart'
+import Order, { loader as orderLoader } from './features/order/Order'
+import CreateOrder from './features/order/CreateOrder'
+import AppLayout from './UI/AppLayout'
 
 const router = createBrowserRouter([
     {
@@ -35,11 +35,13 @@ const router = createBrowserRouter([
             {
                 path: '/order/:orderId',
                 element: <Order />,
+                loader: orderLoader,
+                errorElement: <Error />,
             },
         ],
     },
-]);
+])
 
 export default function App() {
-    return <RouterProvider router={router} />;
+    return <RouterProvider router={router} />
 }
