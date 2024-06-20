@@ -103,7 +103,7 @@ export default function CreateOrder() {
                         value={JSON.stringify(cart)}
                     />
 
-                    <Button disabled={isSubmitting}>
+                    <Button type="primary" disabled={isSubmitting}>
                         {isSubmitting ? 'Placing order ...' : 'Order now'}
                     </Button>
                 </div>

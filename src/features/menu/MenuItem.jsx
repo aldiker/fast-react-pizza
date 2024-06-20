@@ -9,9 +9,9 @@ export default function MenuItem({ pizza }) {
             <img
                 src={imageUrl}
                 alt={name}
-                className={`h-24 ${soldOut ? 'opacity-70 grayscale' : ''}`}
+                className={`h-24 rounded-2xl ${soldOut ? 'opacity-70 grayscale' : ''}`}
             />
-            <div className="flex grow flex-col">
+            <div className="flex grow flex-col pt-1">
                 <p className="font-medium">{name}</p>
                 <p className="text-sm capitalize italic text-stone-500">
                     {ingredients.join(', ')}
@@ -24,7 +24,7 @@ export default function MenuItem({ pizza }) {
                             Sold out
                         </p>
                     )}
-                    <Button>Add to cart</Button>
+                    <Button type="small">Add to cart</Button>
                 </div>
             </div>
         </li>
