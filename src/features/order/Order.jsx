@@ -1,13 +1,13 @@
 // Test ID: IIDSAT
 
-import { useLoaderData } from 'react-router-dom';
-import { getOrder } from '../../services/apiRestaurant';
+import { useLoaderData } from 'react-router-dom'
+import { getOrder } from '../../services/apiRestaurant'
 import {
     calcMinutesLeft,
     formatCurrency,
     formatDate,
-} from '../../utils/helpers';
-import OrderItem from './OrderItem';
+} from '../../utils/helpers'
+import OrderItem from './OrderItem'
 
 // const order = {
 //     id: 'ABCDEF',
@@ -47,7 +47,7 @@ import OrderItem from './OrderItem';
 export default function Order() {
     // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
 
-    const order = useLoaderData();
+    const order = useLoaderData()
 
     const {
         id,
@@ -57,14 +57,14 @@ export default function Order() {
         orderPrice,
         estimatedDelivery,
         cart,
-    } = order;
+    } = order
 
-    const deliveryIn = calcMinutesLeft(estimatedDelivery);
+    const deliveryIn = calcMinutesLeft(estimatedDelivery)
 
     return (
         <div className="space-y-8 px-4 py-6">
             <div className="flex flex-wrap items-center justify-between">
-                <h2 className="text-xl font-semibold">Order #NOORDER status</h2>
+                <h2 className="text-xl font-semibold">Order #{id} status</h2>
 
                 <div className="space-x-2">
                     {priority && (
@@ -112,10 +112,10 @@ export default function Order() {
                 </p>
             </div>
         </div>
-    );
+    )
 }
 
 export async function loader({ params }) {
-    const order = await getOrder(params.orderId);
-    return order;
+    const order = await getOrder(params.orderId)
+    return order
 }
